@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--google font lato-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!--google font inter-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!--tailwind cdn-->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--font awesome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Peddy</title>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        btnColor: '#0E7A81',
+                        activeBtn: '#0E7A811A',
+                        sub: '#0E7A81'
+                    },
+                    fontFamily: {
+                        lato: ["Lato", " sans-serif"],
+                        inter: ["Inter", "sans-serif"],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header class="container mx-auto">
+        <!--navbar start-->
+        <div class="navbar bg-base-100 mt-14">
+            <div class="navbar-start">
+                <a class="btn btn-ghost text-2xl font-bold"><img src="./image/logo.webp" alt=""> <span>Peddy</span></a>
+            </div>
+            <div class="navbar-center hidden md:flex">
+                <ul class="menu menu-horizontal px-1 font-semibold text-gray-500 text-lg gap-3">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <span><img class="w-10 h-10" src="https://img.icons8.com/?size=50&id=7820&format=png" alt=""></span>
+            </div>
+            <!--bars start-->
+            <div class="dropdown dropdown-end md:hidden lg:hidden ">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <!--bars end-->
+        </div>
+        <!--navbar end-->
+        <!--banner section start-->
+        <section class="text-center mt-8 lg:mt-14">
+            <div class="lg:w-6/12 mx-auto">
+                <h4 class="text-1xl text-gray-500 font-bold">Choose Your Best Friend ❤️ </h4>
+                <h1 class="md:text-6xl text-2xl text-black font-bold mt-10 mb-6 ">Your Path to Adoption Starts Here</h1>
+                <p class="text-gray-400 font-base mb-8 ">Adopting a cat is a special experience that creates a bond like
+                    a new family member.</p>
+                <a href="#adopt-your-best-friend"><button
+                        class="btn bg-btnColor py-4 px-8 text-white font-base mb-12">View More</button></a>
+                <img class="size-60 mx-auto md:size-fit" src="./image/pet.webp" alt="">
+            </div>
+        </section>
+        <!--banner section end-->
+    </header>
+    <main class="container mx-auto p-5 md:p-0 ">
+        <!--Adopt section start-->
+        <section class="mt-10 md:mt-20 text-center mb-24">
+            <div class="lg:w-4/12 mx-auto">
+                <h3 id="adopt-your-best-friend" class="lg:text-4xl text-1xl md:text-2xl font-bold text-black">Adopt Your
+                    Best Friend</h3>
+                <p class="text-gray-400 font-base mt-6">
+                    Cats and dogs are both the most loyal and beloved companions of humans. If you want to bring a
+                    beautiful moment into your life, then cats and dogs can be an excellent choice.</p>
+            </div>
+            <!--button container-->
+            <div id="categoryContainer"
+                class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12 items-center justify-center">
+            </div>
+        </section>
+
+        <!--Adopt section end-->
+        <div class="flex justify-between my-11">
+            <h3 class="font-bold text-2xl">Best Deal For you</h3>
+            <button onclick="allPrice()" class="btn bg-btnColor py-4 px-8 text-white font-base mb-12">Sort by
+                Price</button>
+        </div>
+        <!--cart section start-->
+        <div id="spinner-container" class="text-center hidden my-0 lg:my-28">
+            <span class="loading loading-dots loading-lg"></span>
+        </div>
+        <section id="a" class="lg:flex gap-10 ">
+
+            <div id="cartContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+
+            </div>
+
+
+            <div id="category-container"
+                class="grid grid-cols-2 border gap-6 h-fit min-h-32 md:min-w-[400px] p-3 rounded-lg">
+            </div>
+
+        </section>
+
+        <!--cart section end-->
+
+
+        <!--modal-->
+        <div id="modal-container">
+            <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle ">
+                <div class="modal-box">
+
+                    <img id="image" class="rounded-lg  w-full h-30" src=" " alt="">
+                    <div>
+                        <h4 id="petName" class="font-bold text-xl"></h4>
+                        <div class="flex gap-14">
+                            <div>
+                                <p class="text-gray-400 font-base flex gap-2 my-1"> <i
+                                        class="fa-solid fa-vector-square my-1"></i><span id="petBreed"></span></p>
+                                <p class="text-gray-400 font-base flex gap-2 my-1"><i
+                                        class="fa-regular fa-calendar my-1"></i><span id="petBirth">
+                                    </span>
+                                </p>
+                                <p class="text-gray-400 font-base flex gap-2 my-1"><i
+                                        class="fa-solid fa-venus my-1"></i><span id="petGender"></span>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 font-base flex gap-2 my-1"><i
+                                        class="fa-solid fa-venus my-1"></i><span id="vaccinatd"></span>
+                                </p>
+                                <p class="text-gray-400 font-base flex gap-2 my-1"><i
+                                        class="fa-solid fa-dollar-sign my-1"></i><span id="petPrice">
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <hr class="border my-4 ">
+                        </hr>
+                        <h4 class="font-bold text-lg my-2">Details Information</h4>
+                        <p class="text-gray-400 font-base flex gap-2 my-1" id="petDetails">
+
+                        </p>
+                        <form method="dialog">
+                            <button
+                                class="w-full py-2  bg-green-50 border border-btnColor rounded-xl text-btnColor text-lg font-bold">Close</button>
+                        </form>
+                    </div>
+
+            </dialog>
+        </div>
+
+        <!--modal 2-->
+        <dialog id="my_modal_2" class="modal">
+            <div class="modal-box flex flex-col justify-center items-center">
+                <img src="https://img.icons8.com/?size=48&id=80676&format=png" alt="">
+                <h3 class="text-4xl font-bold">Congrats</h3>
+                <p class="py-4">Adoption Process Is Start For Your Pet</p>
+                <p id="counter" class="text-4xl font-bold">3</p>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
+
+    </main>
+    <footer class="bg-black py-24 text-center md:text-left">
+        <section class="container grid lg:grid-cols-3 grid-cols-1 mx-auto lg:justify-between">
+            <div class="md:w-12/12 md:mx-auto lg:text-left lg:w-full">
+                <h3
+                    class="flex gap-3 mb-6 text-8  text-white items-center justify-center lg:justify-start md:items-start">
+                    <img src="./image/logo.webp" alt=""> <span class="text-3xl">Peddy</span>
+                </h3>
+                <p class="text-white md:text-center lg:text-left">Maskanda, Mymensingh <br>
+                    Phone: +88 01729 304005 <br>
+                    Email: code.meshams@gmail.com <br>
+                    Openings hours: 9.00 AM - 5.00 PM
+                </p>
+                <p class="flex gap-4 mt-6 justify-center mb-4 lg:justify-start">
+                    <a href="https://www.google.com/search?q=fb+loing" target="-blank"><img class="w-10 h-10"
+                            src="https://img.icons8.com/?size=48&id=uLWV5A9vXIPu&format=png" alt=""></a>
+                    <a href="https://www.youtube.com/@JhankarMahbub" target="-blank"> <img class="w-10 h-10"
+                            src="https://img.icons8.com/?size=48&id=19318&format=png" alt=""></a>
+                    <a href="https://x.com/i/flow/login?" target="-blank"><img class="w-10 h-10"
+                            src="https://img.icons8.com/?size=64&id=bG29Ckcdp6YP&format=png" alt=""></a>
+                    <a href="https://www.instagram.com/accounts/login/" target="-blank"> <img class="w-10 h-10"
+                            src="https://img.icons8.com/?size=48&id=32323&format=png" alt=""></a>
+                </p>
+            </div>
+            <div class="flex flex-col md:items-center ">
+                <h3 class="text-2xl mb-4 md:mb-6 text-white">Useful Links</h3>
+                <a href="" class="text-white">Home</a>
+                <a href="#" class="text-white">About Us</a>
+                <a href="#" class="text-white">Animals</a>
+                <!-- <a href="#" class="text-white">Foundation</a> -->
+                <a href="#" class="text-white">Contact</a>
+            </div>
+            <div class="flex flex-col lg:justify-end lg:items-end md:items-center md:justify-center">
+                <h3 class="text-2xl text-white mb-6 mt-4  lg:mt-0 md:w-5/12 lg:text-right md:text-center">Drop a Message
+                </h3>
+                <div class="w-10/12 md:w-7/12 mx-auto md:mx-0 lg:flex lg:flex-col md:items-center md:justify-center">
+                    <input type="text" placeholder="Enter your email"
+                        class="gap-2 bg-gray-500 md:w-full p-4 rounded-xl w-full">
+                    <button
+                        class=" font-bold w-full  rounded-xl mt-4 bg-sub py-4 px-8 text-white font-base mb-12 md:w-full hover:bg-gray-300 hover:text-black transition transform ease-in-out  ">Subscribe</button>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>
